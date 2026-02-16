@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: habit-tracker-server
+    env: node
+    buildCommand: "npm install"
+    startCommand: "npm start"
+    plan: free
+    envVars:
+      - key: DATABASE_URL
+
+  - type: static
+    name: habit-tracker-client
+    env: node
+    buildCommand: "npm install && npm run build"
+    publishPath: "dist"
+    plan: free
